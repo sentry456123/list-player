@@ -8,7 +8,7 @@ Simple minimalistic music player.
 
 # Build instructions
 - Simply run list_player.py with python3.
-- If you want a single executable file, then you need to run installer.py with python3.
+- If you want a single executable file, then you need to run installer.py with python3 (PyInstaller required).
 
 # Usage
 1. Click the button called "Add files".

@@ -10,7 +10,7 @@ Simple minimalistic music player.
 - Simply run list_player.py with python3.
 - If you want a single executable file, then you need to run installer.py with python3.
 
-# How to use it
+# Usage
 1. Click the button called "Add files".
 2. Select single or multiple files.
 3. Click "Play".

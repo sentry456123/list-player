@@ -1,4 +1,4 @@
-# list-player
+# List Player
 Simple minimalistic music player.
 
 # Dependencies
@@ -10,4 +10,5 @@ Simple minimalistic music player.
 - Simply run list_player.py with python3.
 - If you want a single executable file, then you need to run installer.py with python3.
 
-
+# Bug reports
+Any bug reports will be appreciated.

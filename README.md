@@ -4,7 +4,7 @@ Simple minimalistic music player.
 # Dependencies
 - Tkinter
 - Python-vlc (Note that you also need to install VLC itself. Python-vlc uses it as a dependency.)
-- PyInstaller (Optional, used to create a single executable file. Run installer.py to quickly generate it.)
+- PyInstaller (Optional, used to create a single executable file.)
 
 # Build instructions
 - Simply run list_player.py with python3.

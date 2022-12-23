@@ -13,6 +13,8 @@ window = tkinter.Tk()
 window.title(TITLE)
 window.geometry("600x400")
 
+fullscreen = False
+
 relief = tkinter.GROOVE
 
 volume = 100
@@ -20,7 +22,7 @@ volume = 100
 def clamp(n, smallest, largest):
     return max(smallest, min(n, largest))
 
-def update_display():
+def update_music_list_text():
     music_list_text.set(str(music_list)
         .replace(",", "\n")
         .replace("[", "")
@@ -30,11 +32,11 @@ def update_display():
 def select_file():
     filenames = filedialog.askopenfilenames(title="Open files", initialdir="/")
     music_list.extend(filenames)
-    update_display()
+    update_music_list_text()
 
 def clear():
     music_list.clear()
-    update_display()
+    update_music_list_text()
     
 def play():
     player.set_media_list(vlc.MediaList(music_list))
@@ -67,6 +69,35 @@ def volume_down():
     volume = clamp(volume, 0, 100)
     player.get_media_player().audio_set_volume(volume)
     volume_text.set(str(volume) + "%")
+
+def on_key_press(event: tkinter.Event):
+    global fullscreen
+    c = event.keysym
+    c = c.lower()
+    ctrl = (event.state & 0x4) != 0
+    
+    match c:
+        case 'escape':
+            fullscreen = False
+            window.attributes("-fullscreen", fullscreen)
+        case 'f11':
+            fullscreen = not fullscreen
+            window.attributes("-fullscreen", fullscreen)
+    if not ctrl:
+        return
+    match c:
+        case 'a': play()
+        case 's': pause()
+        case 'd': stop()
+        case 'e': select_file()
+        case 'z': enable_loop()
+        case 'x': disable_loop()
+        case 'c': volume_up()
+        case 'v': volume_down()
+        case 'w': window.destroy()
+        case 'f':
+            fullscreen = not fullscreen
+            window.attributes("-fullscreen", fullscreen)
 
 music_list_text = tkinter.StringVar()
 music_list_label = tkinter.Label(window, textvariable=music_list_text, relief=relief)
@@ -110,5 +141,7 @@ loop_label.grid(row=0, column=2)
 volume_up_buttom.grid(row=0, column=0)
 volume_down_buttom.grid(row=0, column=1)
 volume_label.grid(row=0, column=2)
+
+window.bind("<Key>", on_key_press)
 
 window.mainloop()

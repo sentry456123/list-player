@@ -17,7 +17,7 @@ fullscreen = False
 
 relief = tkinter.GROOVE
 
-volume = 100
+volume = 50
 
 def clamp(n, smallest, largest):
     return max(smallest, min(n, largest))
@@ -41,6 +41,7 @@ def clear():
 def play():
     player.set_media_list(vlc.MediaList(music_list))
     player.play()
+    player.get_media_player().audio_set_volume(volume)
 
 def pause():
     player.pause()
@@ -113,6 +114,7 @@ loop_control_frame = tkinter.Frame(window, relief=relief)
 enable_loop_button = tkinter.Button(loop_control_frame, text="Enable loop", command=enable_loop, relief=relief)
 disable_loop_button = tkinter.Button(loop_control_frame, text="Disable loop", command=disable_loop, relief=relief)
 loop_text = tkinter.StringVar()
+player.set_playback_mode(vlc.PlaybackMode.default)
 loop_text.set(LOOP_DISABLED)
 loop_label = tkinter.Label(loop_control_frame, textvariable=loop_text, relief=relief)
 

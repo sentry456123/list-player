@@ -6,7 +6,7 @@ Simple minimalistic music player.
 - Python-vlc (Note that you also need to install VLC itself. Python-vlc uses it as a dependency.)
 - PyInstaller (Optional, used to create a single executable file. Run installer.py to quickly generate it.)
 
-# Build Instructions
+# Build instructions
 - Simply run list_player.py with python3.
 - If you want a single executable file, then you need to run installer.py with python3.
 
@@ -16,5 +16,5 @@ Simple minimalistic music player.
 3. Click "Play".
 4. ENJOY YOUR FRICKING MUSIC OH YEAH.
 
-# Bug Reports
+# Bug reports
 Any bug reports will be appreciated.

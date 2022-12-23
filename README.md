@@ -16,5 +16,5 @@ Simple minimalistic music player.
 3. Click "Play".
 4. ENJOY YOUR FRICKING MUSIC OH YEAH.
 
-# Bug reports
+# Bug Reports
 Any bug reports will be appreciated.
